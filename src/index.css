@@ -1,0 +1,507 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'Noto Serif KR';
+  font-display: swap;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  background: #080E1F;
+}
+
+/* ═══════════ Star Animations ═══════════ */
+@keyframes twinkle-slow {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.9; }
+}
+@keyframes twinkle-medium {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1.0; }
+}
+@keyframes twinkle-fast {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 0.85; }
+}
+
+.twinkle-slow { animation: twinkle-slow 4s ease-in-out infinite; }
+.twinkle-medium { animation: twinkle-medium 2.5s ease-in-out infinite; }
+.twinkle-fast { animation: twinkle-fast 1.5s ease-in-out infinite; }
+
+@keyframes twinkle-army {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1.0; }
+}
+
+/* ═══════════ Moon Animations ═══════════ */
+@keyframes pulse-glow {
+  0%, 100% { transform: scale(1); opacity: 0.3; }
+  50% { transform: scale(1.15); opacity: 0.5; }
+}
+@keyframes pulse-glow-alt {
+  0%, 100% { transform: scale(1.05); opacity: 0.25; }
+  50% { transform: scale(1.2); opacity: 0.45; }
+}
+@keyframes float-gentle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* ═══════════ Cloud Animations ═══════════ */
+@keyframes float-cloud-ltr {
+  from { transform: translateX(-350px); }
+  to { transform: translateX(calc(100vw + 350px)); }
+}
+@keyframes float-cloud-rtl {
+  from { transform: translateX(calc(100vw + 350px)); }
+  to { transform: translateX(-350px); }
+}
+
+/* ═══════════ Blossom Animations ═══════════ */
+@keyframes blossom-fall {
+  from { transform: translateY(-60px); }
+  to { transform: translateY(calc(100vh + 60px)); }
+}
+@keyframes blossom-sway {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(35px); }
+  75% { transform: translateX(-25px); }
+}
+@keyframes blossom-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ═══════════ Wave Animations ═══════════ */
+@keyframes wave-drift {
+  from { transform: translateX(0); }
+  to { transform: translateX(-200px); }
+}
+@keyframes wave-drift-slow {
+  from { transform: translateX(0); }
+  to { transform: translateX(-180px); }
+}
+
+/* ═══════════ Mountain Parallax ═══════════ */
+@keyframes parallax-far {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(-20px); }
+}
+@keyframes parallax-mid-far {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(-15px); }
+}
+@keyframes parallax-mid {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(-10px); }
+}
+@keyframes parallax-near {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(-5px); }
+}
+
+/* ═══════════ Crane Animations ═══════════ */
+@keyframes crane-glide {
+  from { transform: translateX(-250px); }
+  to { transform: translateX(calc(100vw + 250px)); }
+}
+@keyframes crane-wing-flap {
+  0%, 100% { transform: scaleY(1); }
+  50% { transform: scaleY(-0.85); }
+}
+
+/* ═══════════ Title Animations ═══════════ */
+@keyframes title-shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+@keyframes title-glow {
+  0%, 100% { filter: drop-shadow(0 0 8px rgba(212, 168, 67, 0.3)); }
+  50% { filter: drop-shadow(0 0 20px rgba(212, 168, 67, 0.6)); }
+}
+
+/* ═══════════ Ribbon Animations ═══════════ */
+@keyframes ribbon-flow {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  33% { transform: translateY(12px) rotate(1deg); }
+  66% { transform: translateY(-6px) rotate(-0.5deg); }
+}
+@keyframes ribbon-flow-alt {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  40% { transform: translateY(-10px) rotate(-0.8deg); }
+  70% { transform: translateY(8px) rotate(0.6deg); }
+}
+
+/* ═══════════ General float ═══════════ */
+@keyframes float-up-down {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+/* ═══════════ Fade in ═══════════ */
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-fade-in {
+  animation: fade-in 2s ease-out forwards;
+}
+
+/* ═══════════ Scene 2: Stadium Concert ═══════════ */
+@keyframes crowd-jump {
+  0%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-8px); }
+  50% { transform: translateY(-10px); }
+  60% { transform: translateY(-8px); }
+}
+@keyframes fg-crowd-jump {
+  0%, 100% { transform: translateY(0); }
+  35% { transform: translateY(-18px); }
+  50% { transform: translateY(-22px); }
+  65% { transform: translateY(-18px); }
+}
+@keyframes crowd-beam-sweep {
+  0%, 100% { transform: rotate(-12deg); }
+  50% { transform: rotate(12deg); }
+}
+@keyframes spotlight-sweep {
+  0%, 100% { transform: rotate(-8deg); }
+  50% { transform: rotate(8deg); }
+}
+@keyframes spotlight-sweep-wide {
+  0%, 100% { transform: rotate(-15deg); }
+  50% { transform: rotate(15deg); }
+}
+@keyframes army-bomb-glow {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1.0; }
+}
+@keyframes army-bomb-glow-fast {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 0.9; }
+}
+@keyframes army-bomb-glow-slow {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1.0; }
+}
+@keyframes confetti-fall {
+  from { transform: translateY(-20px); }
+  to { transform: translateY(calc(100vh + 20px)); }
+}
+@keyframes confetti-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(720deg); }
+}
+@keyframes confetti-sway {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(20px); }
+  75% { transform: translateX(-15px); }
+}
+@keyframes color-wash {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+@keyframes camera-flash {
+  0%, 96%, 100% { opacity: 0; }
+  97% { opacity: 1; }
+  98.5% { opacity: 0.4; }
+}
+@keyframes bass-pulse-ring {
+  0% { transform: scale(0); opacity: 0.08; }
+  100% { transform: scale(1); opacity: 0; }
+}
+@keyframes stage-pulse {
+  0%, 100% { transform: scaleY(1); opacity: 1; }
+  50% { transform: scaleY(1.03); opacity: 0.95; }
+}
+@keyframes screen-flicker {
+  0%, 100% { opacity: 0.85; }
+  10% { opacity: 0.9; }
+  30% { opacity: 0.75; }
+  50% { opacity: 0.95; }
+  70% { opacity: 0.8; }
+  90% { opacity: 0.88; }
+}
+
+/* ═══════════ Scene 3: BTS on Stage ═══════════ */
+@keyframes member-sway {
+  0%, 100% { transform: translateX(0); }
+  30% { transform: translateX(-3px); }
+  70% { transform: translateX(3px); }
+}
+@keyframes member-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.015); }
+}
+@keyframes pyro-flicker {
+  0% { transform: scaleY(1) scaleX(1); opacity: 0.8; }
+  25% { transform: scaleY(1.15) scaleX(0.95); opacity: 1; }
+  50% { transform: scaleY(0.9) scaleX(1.05); opacity: 0.7; }
+  75% { transform: scaleY(1.1) scaleX(0.98); opacity: 0.9; }
+  100% { transform: scaleY(1) scaleX(1); opacity: 0.8; }
+}
+@keyframes laser-sweep {
+  0%, 100% { transform: rotate(-8deg); }
+  50% { transform: rotate(8deg); }
+}
+@keyframes led-panel-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.78; }
+}
+@keyframes led-pattern {
+  from { transform: translateX(0); }
+  to { transform: translateX(-120px); }
+}
+@keyframes led-scanline {
+  from { transform: translateY(0); }
+  to { transform: translateY(600px); }
+}
+@keyframes spark-rise {
+  0% { transform: translateY(0) scale(1); opacity: 1; }
+  100% { transform: translateY(-120px) scale(0.3); opacity: 0; }
+}
+@keyframes backlight-pulse {
+  0%, 100% { opacity: 0.8; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+}
+@keyframes reflection-shimmer {
+  0%, 100% { opacity: 0.12; }
+  50% { opacity: 0.22; }
+}
+
+@keyframes gerb-pulse {
+  0%, 100% { opacity: 0.75; }
+  50% { opacity: 1; }
+}
+@keyframes spot-breathe {
+  0%, 100% { opacity: 0.9; }
+  50% { opacity: 1; }
+}
+@keyframes ray-breathe {
+  0%, 100% { opacity: 0.85; }
+  50% { opacity: 1; }
+}
+
+/* ═══════════ Scene 3-Brush: Calligraphy ═══════════ */
+@keyframes brush-draw {
+  0% { stroke-dashoffset: inherit; opacity: 0.4; }
+  100% { stroke-dashoffset: 0; opacity: 0; }
+}
+
+/* ═══════════ Countryside (Acts 3–8) ═══════════ */
+@keyframes firefly-drift {
+  0% { transform: translate(0, 0); opacity: 0.3; }
+  50% { transform: translate(6px, -8px); opacity: 0.9; }
+  100% { transform: translate(-4px, 4px); opacity: 0.4; }
+}
+
+/* ═══════════ Arirang Symbol Animated Scene ═══════════ */
+@keyframes arirang-orbit {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes arirang-shockwave {
+  0% { transform: scale(1); opacity: 0.5; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+@keyframes arirang-particle-rise {
+  0% { transform: translateY(0) scale(1); opacity: 0; }
+  8% { opacity: 0.9; }
+  70% { opacity: 0.4; }
+  100% { transform: translateY(-350px) scale(0.1); opacity: 0; }
+}
+@keyframes arirang-glow-breathe {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.08); }
+}
+@keyframes arirang-scan {
+  0% { transform: translateY(-100px); opacity: 0; }
+  3% { opacity: 0.5; }
+  97% { opacity: 0.5; }
+  100% { transform: translateY(1200px); opacity: 0; }
+}
+@keyframes arirang-chromatic-r {
+  0%, 100% { transform: translate(-2px, 1px); }
+  25% { transform: translate(-5px, -1px); }
+  50% { transform: translate(-1px, 2px); }
+  75% { transform: translate(-4px, 0px); }
+}
+@keyframes arirang-chromatic-b {
+  0%, 100% { transform: translate(2px, -1px); }
+  25% { transform: translate(5px, 1px); }
+  50% { transform: translate(1px, -2px); }
+  75% { transform: translate(4px, 0px); }
+}
+@keyframes arirang-energy-flow {
+  from { stroke-dashoffset: 60; }
+  to { stroke-dashoffset: 0; }
+}
+@keyframes arirang-nebula {
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.15; }
+  33% { transform: translate(40px, -25px) scale(1.15); opacity: 0.25; }
+  66% { transform: translate(-30px, 20px) scale(0.9); opacity: 0.1; }
+}
+@keyframes arirang-ray-pulse {
+  0%, 100% { opacity: 0.04; }
+  50% { opacity: 0.12; }
+}
+@keyframes arirang-emerge-scene {
+  0% { opacity: 0; transform: scale(0.92); }
+  100% { opacity: 1; transform: scale(1); }
+}
+@keyframes arirang-lens-flare {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.9; transform: scale(1.4); }
+}
+@keyframes arirang-sparkle {
+  0%, 100% { opacity: 0; transform: scale(0.3); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+@keyframes arirang-flare-breathe {
+  0%, 100% { opacity: 0.5; transform: scaleX(1); }
+  50% { opacity: 1; transform: scaleX(1.3); }
+}
+
+/* ═══════════ Ink Wash (수묵화) ═══════════ */
+@keyframes ink-breathe-a {
+  0%, 100% { opacity: 0.15; transform: scale(1); }
+  50% { opacity: 0.35; transform: scale(1.04); }
+}
+@keyframes ink-breathe-b {
+  0%, 100% { opacity: 0.10; transform: scale(1); }
+  50% { opacity: 0.28; transform: scale(1.06); }
+}
+@keyframes ink-breathe-c {
+  0%, 100% { opacity: 0.08; transform: scale(1); }
+  50% { opacity: 0.22; transform: scale(1.08); }
+}
+@keyframes ink-symbol-breathe {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 0.95; }
+}
+
+/* ═══════════ Moonlit Water (달빛) ═══════════ */
+@keyframes dalbit-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+@keyframes dalbit-ripple {
+  0% { transform: scale(1); opacity: 0.2; }
+  100% { transform: scale(2); opacity: 0; }
+}
+@keyframes dalbit-glow {
+  0%, 100% { opacity: 0.06; transform: scale(1); }
+  50% { opacity: 0.12; transform: scale(1.03); }
+}
+
+/* ═══════════ Smoke / Incense (향) ═══════════ */
+@keyframes smoke-wisp-drift {
+  0%   { transform: translateY(0) translateX(0); opacity: 1; }
+  50%  { transform: translateY(-100px) translateX(25px); opacity: 0.7; }
+  100% { transform: translateY(-200px) translateX(-15px); opacity: 0.3; }
+}
+@keyframes smoke-symbol-breathe {
+  0%, 100% { opacity: 0.4; }
+  50%      { opacity: 0.85; }
+}
+@keyframes smoke-glow-breathe {
+  0%, 100% { opacity: 0.05; transform: scale(1); }
+  50%      { opacity: 0.12; transform: scale(1.04); }
+}
+
+/* ═══════════ Calligraphy Reveal (서예) ═══════════ */
+@keyframes seoye-stroke-s1a {
+  0% { stroke-dashoffset: 1; opacity: 1; }
+  13.3% { stroke-dashoffset: 0; opacity: 1; }
+  73.3% { opacity: 1; }
+  86.7% { opacity: 0; }
+  100% { opacity: 0; stroke-dashoffset: 0; }
+}
+@keyframes seoye-stroke-s1b {
+  0%, 3.3% { stroke-dashoffset: 1; opacity: 0; }
+  3.3% { opacity: 1; }
+  16.7% { stroke-dashoffset: 0; }
+  73.3% { opacity: 1; }
+  86.7% { opacity: 0; }
+  100% { opacity: 0; stroke-dashoffset: 0; }
+}
+@keyframes seoye-stroke-s2a {
+  0%, 13.3% { stroke-dashoffset: 1; opacity: 0; }
+  13.3% { opacity: 1; }
+  26.7% { stroke-dashoffset: 0; }
+  73.3% { opacity: 1; }
+  86.7% { opacity: 0; }
+  100% { opacity: 0; stroke-dashoffset: 0; }
+}
+@keyframes seoye-stroke-s2b {
+  0%, 16.7% { stroke-dashoffset: 1; opacity: 0; }
+  16.7% { opacity: 1; }
+  26.7% { stroke-dashoffset: 0; }
+  73.3% { opacity: 1; }
+  86.7% { opacity: 0; }
+  100% { opacity: 0; stroke-dashoffset: 0; }
+}
+@keyframes seoye-stroke-s3a {
+  0%, 26.7% { stroke-dashoffset: 1; opacity: 0; }
+  26.7% { opacity: 1; }
+  40% { stroke-dashoffset: 0; }
+  73.3% { opacity: 1; }
+  86.7% { opacity: 0; }
+  100% { opacity: 0; stroke-dashoffset: 0; }
+}
+@keyframes seoye-stroke-s3b {
+  0%, 30% { stroke-dashoffset: 1; opacity: 0; }
+  30% { opacity: 1; }
+  40% { stroke-dashoffset: 0; }
+  73.3% { opacity: 1; }
+  86.7% { opacity: 0; }
+  100% { opacity: 0; stroke-dashoffset: 0; }
+}
+@keyframes seoye-fill-s1 {
+  0%, 10% { opacity: 0; }
+  20% { opacity: 1; }
+  73.3% { opacity: 1; }
+  86.7% { opacity: 0; }
+  100% { opacity: 0; }
+}
+@keyframes seoye-fill-s2 {
+  0%, 23.3% { opacity: 0; }
+  33.3% { opacity: 1; }
+  73.3% { opacity: 1; }
+  86.7% { opacity: 0; }
+  100% { opacity: 0; }
+}
+@keyframes seoye-fill-s3 {
+  0%, 36.7% { opacity: 0; }
+  46.7% { opacity: 1; }
+  73.3% { opacity: 1; }
+  86.7% { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+/* ═══════════ Zen Ripple (파문) ═══════════ */
+@keyframes zen-ripple-expand {
+  0% { transform: scale(1); opacity: 0.25; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+
+/* ═══════════ Reduced motion ═══════════ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
