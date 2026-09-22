@@ -3,8 +3,7 @@
 A todo list, in the order the items were called out, with enough design
 under each one that the work can start without another conversation.
 Everything here is about the studio worktree (`/srv/work/code_animation-studio`,
-branch `studio`), which is also what the public repo
-(`github.com/FutureAIProject/VibeAnimate`) is a snapshot of.
+branch `studio`), which is also what the public repo is a snapshot of.
 
 Legend: `[ ]` todo · `[~]` partly there already · `[?]` unverified claim ·
 **explore** = spike it, keep it detachable, it may be cut.
